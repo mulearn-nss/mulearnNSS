@@ -1,9 +1,44 @@
+import { useEffect, useRef } from 'react';
 import styles from "./Team.module.css";
 import line from "./assets/line.png";
 import line2 from "./assets/line2.png";
 import data from "../../../data.json"
 
 const Team = () => {
+    const teamRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.visible);
+                    }
+                });
+            },
+            {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            }
+        );
+
+        teamRefs.current.forEach((ref) => {
+            if (ref) observer.observe(ref);
+        });
+
+        return () => {
+            teamRefs.current.forEach((ref) => {
+                if (ref) observer.unobserve(ref);
+            });
+        };
+    }, []);
+
+    const addToRefs = (el: HTMLDivElement | null, index: number) => {
+        if (el && !teamRefs.current.includes(el)) {
+            teamRefs.current[index] = el;
+        }
+    };
+
     return (
         <div className={styles.teamWrapper} id="team">
             <h1>Our Team</h1>
@@ -15,7 +50,10 @@ const Team = () => {
                     <img src={line2} alt="" loading="lazy" />
                 </div>
                 <div className={styles.teamMembersDetailsWrapper}>
-                    <div className={`${styles.team} ${styles.team1}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 0)}
+                        className={`${styles.team} ${styles.team1}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
@@ -32,7 +70,10 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.team} ${styles.team2}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 1)}
+                        className={`${styles.team} ${styles.team2}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
@@ -49,7 +90,10 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.team} ${styles.team3}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 2)}
+                        className={`${styles.team} ${styles.team3}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
@@ -66,7 +110,10 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.team} ${styles.team4}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 3)}
+                        className={`${styles.team} ${styles.team4}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
@@ -83,7 +130,10 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.team} ${styles.team5}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 4)}
+                        className={`${styles.team} ${styles.team5}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
@@ -100,7 +150,10 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.team} ${styles.team6}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 5)}
+                        className={`${styles.team} ${styles.team6}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
@@ -117,7 +170,10 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.team} ${styles.team7}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 6)}
+                        className={`${styles.team} ${styles.team7}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
@@ -134,7 +190,10 @@ const Team = () => {
                             </div>
                         </div>
                     </div>
-                    <div className={`${styles.team} ${styles.team8}`}>
+                    <div 
+                        ref={(el) => addToRefs(el, 7)}
+                        className={`${styles.team} ${styles.team8}`}
+                    >
                         <div className={styles.team1Img}>
                             <img
                                 className={styles.teamImageIndividual}
