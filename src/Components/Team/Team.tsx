@@ -209,27 +209,7 @@ const Team = () => {
                                 Content Lead
                             </div>
                         </div>
-                    </div>    
-                    <div 
-                        ref={(el) => addToRefs(el, 8)}
-                        className={`${styles.team} ${styles.team9}`}
-                    >
-                        <div className={styles.team1Img}>
-                            <img
-                                className={styles.teamImageIndividual}
-                                src={data.team.operationLead.image}
-                                loading="lazy"
-                            />
-                        </div>
-                        <div className={styles.teamNameDesignation}>
-                            <div className={styles.teamMemberName}>
-                                {data.team.operationLead.name}
-                            </div>
-                            <div className={styles.teamMemberDesignation}>
-                                Content Lead
-                            </div>
-                        </div>
-                    </div>                    
+                    </div>                       
                 </div>
             </div>
         </div>

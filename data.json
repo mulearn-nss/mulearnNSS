@@ -104,16 +104,6 @@
         "operationLead": {
             "name": "Favas M",
             "image": "https://dataset-eight.vercel.app/member6.svg"
-        },
-        "member9": {
-            "name": "John Doe",
-            "image": "https://dataset-eight.vercel.app/member7.svg",
-            "role": "Event Coordinator"
-        },
-        "member10": {
-            "name": "Jane Smith",
-            "image": "https://dataset-eight.vercel.app/member8.svg",
-            "role": "Outreach Lead"
         }
     },
 
