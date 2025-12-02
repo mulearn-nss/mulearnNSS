@@ -36,14 +36,6 @@ const Footer = () => {
                     <Instagram />
                     Instagram
                 </a>
-                {/* <a href={data.twitter} target="_blank" rel="noopener noreferrer">
-                    <Twitter />
-                    Twitter
-                </a>
-                <a href={data.facebook} target="_blank" rel="noopener noreferrer">
-                    <Facebook />
-                    Facebook
-                </a> */}
             </div>
             <div className={styles.line}></div>
             <div className={styles.ptag}>
